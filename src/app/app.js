@@ -8,6 +8,7 @@ import './app.css';
 import {LeftMenu} from '../components/left-menu';
 import {DepartmentsTable} from '../components/departments-table';
 import {EmployeesTable} from '../components/employees-table';
+import {AppLayout} from './app-layout';
 
 const MENU_ITEMS = [
     {
@@ -23,26 +24,32 @@ const MENU_ITEMS = [
     }
 ];
 
+const SpecificLeftMenu = () => (
+    <LeftMenu
+        items={MENU_ITEMS.map(
+            ({label, path}) => ({label, path})
+        )}
+    />
+);
+
+const Content = () => MENU_ITEMS.map(
+    ({path, component}) => (
+        <Route
+            path={path}
+            component={component}
+            key={path}
+        />
+    )
+);
+
 export class App extends Component<{}, {}> {
     render() {
         return (
             <Router>
-                <div>
-                    <LeftMenu
-                        items={MENU_ITEMS.map(
-                            ({label, path}) => ({label, path})
-                        )}
-                    />
-                    {MENU_ITEMS.map(
-                        ({path, component}) => (
-                            <Route
-                                path={path}
-                                component={component}
-                                key={path}
-                            />
-                        )
-                    )}
-                </div>
+                <AppLayout
+                    LeftMenu={SpecificLeftMenu}
+                    Content={Content}
+                />
             </Router>
         );
     }

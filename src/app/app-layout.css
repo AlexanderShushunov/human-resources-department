@@ -1,0 +1,12 @@
+.app-layout__header {
+    margin: 10px;
+}
+
+.app-layout__body {
+    display: flex;
+}
+
+.app-layout__content {
+    margin: 10px;
+    flex-grow: 1;
+}
