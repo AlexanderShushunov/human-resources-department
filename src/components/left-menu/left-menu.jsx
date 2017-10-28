@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
+import {NavLink} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './left-menu.css';
 
 type MenuItems = {
     label: string,
-    path: string,
-    active: boolean,
+    path: string
 }
 
 type LeftMenuProps = {
@@ -24,15 +24,12 @@ export const LeftMenu = ({items}: LeftMenuProps) => (
     </nav>
 );
 
-const Item = ({label, path, active}) => (
-    <a
-        className={`
-            nav-link
-            nav-item
-            ${active ? 'left-menu__item--active' : ''}
-        `}
-        href={path}
+const Item = ({label, path}) => (
+    <NavLink
+        className={'nav-link nav-item'}
+        to={path}
+        activeClassName="left-menu__item--active"
     >
         {label}
-    </a>
+    </NavLink>
 );
