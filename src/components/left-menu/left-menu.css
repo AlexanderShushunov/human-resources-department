@@ -1,0 +1,5 @@
+.left-menu__item--active {
+    pointer-events: none;
+    color: black;
+    cursor: default;
+}
