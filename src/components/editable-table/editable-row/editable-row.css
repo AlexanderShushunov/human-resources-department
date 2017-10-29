@@ -1,0 +1,19 @@
+.editable-row__icon-cell {
+    --bootstrap-td-padding: 0.75rem;
+    --icon-sze: 24px;
+    width: calc(var(--bootstrap-td-padding) * 2 + var(--icon-sze));
+    cursor: pointer;
+}
+
+.editable-row__icon-cell:hover {
+    filter: drop-shadow(0 0 2px var(--gray));
+}
+
+.editable-row__icon-cell:active {
+    filter: drop-shadow(0 0 7px var(--dark));
+}
+
+.editable-row__icon-cell--delete {
+    background: url(ic_delete_danger_24px.svg) center no-repeat;
+}
+
